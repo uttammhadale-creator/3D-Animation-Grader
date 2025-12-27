@@ -6,6 +6,8 @@ const SYSTEM_INSTRUCTION = `
 You are an expert Professor of 3D Animation. Grade this submission based on the rubric.
 Output a score and a concise critique for each category.
 
+IMPORTANT: All critiques and comments MUST be in Simplified Chinese.
+
 Rubric:
 ${RUBRIC_DATA.map(r => `- ${r.id} (${r.maxScore}pts): ${r.description}`).join('\n')}
 
@@ -18,7 +20,7 @@ Output JSON:
 `;
 
 export const analyzeAnimationFrames = async (
-  base64Images: string[], 
+  base64Images: string[],
   projectDescription: string
 ): Promise<AnalysisResult> => {
   // Always use process.env.API_KEY directly as per guidelines
